@@ -1,0 +1,22 @@
+name: StaticAnalysis
+on:
+  workflow_call:
+
+jobs:
+  static-analysis:
+    name: StaticAnalysis
+    runs-on:
+      - self-hosted
+      - k8s-api
+      - linux-amd64-2-4096
+      - burstable
+      - linux-amd64-s
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: StaticAnalysis
+        id: build
+        run: |
+          echo "This is a StaticAnalysis stage"
